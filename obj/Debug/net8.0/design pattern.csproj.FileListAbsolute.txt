@@ -1,0 +1,14 @@
+/Users/mateodeport/Desktop/Cours-Quatrieme/design pattern/bin/Debug/net8.0/design pattern
+/Users/mateodeport/Desktop/Cours-Quatrieme/design pattern/bin/Debug/net8.0/design pattern.deps.json
+/Users/mateodeport/Desktop/Cours-Quatrieme/design pattern/bin/Debug/net8.0/design pattern.runtimeconfig.json
+/Users/mateodeport/Desktop/Cours-Quatrieme/design pattern/bin/Debug/net8.0/design pattern.dll
+/Users/mateodeport/Desktop/Cours-Quatrieme/design pattern/bin/Debug/net8.0/design pattern.pdb
+/Users/mateodeport/Desktop/Cours-Quatrieme/design pattern/obj/Debug/net8.0/design pattern.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mateodeport/Desktop/Cours-Quatrieme/design pattern/obj/Debug/net8.0/design pattern.AssemblyInfoInputs.cache
+/Users/mateodeport/Desktop/Cours-Quatrieme/design pattern/obj/Debug/net8.0/design pattern.AssemblyInfo.cs
+/Users/mateodeport/Desktop/Cours-Quatrieme/design pattern/obj/Debug/net8.0/design pattern.csproj.CoreCompileInputs.cache
+/Users/mateodeport/Desktop/Cours-Quatrieme/design pattern/obj/Debug/net8.0/design pattern.dll
+/Users/mateodeport/Desktop/Cours-Quatrieme/design pattern/obj/Debug/net8.0/refint/design pattern.dll
+/Users/mateodeport/Desktop/Cours-Quatrieme/design pattern/obj/Debug/net8.0/design pattern.pdb
+/Users/mateodeport/Desktop/Cours-Quatrieme/design pattern/obj/Debug/net8.0/design pattern.genruntimeconfig.cache
+/Users/mateodeport/Desktop/Cours-Quatrieme/design pattern/obj/Debug/net8.0/ref/design pattern.dll
