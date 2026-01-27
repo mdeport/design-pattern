@@ -27,16 +27,56 @@
 
         //Console.WriteLine(insertQuery.Build());
 
-        IDocumentFactory partFactory = new ParticulierDocumentFactory();
-        var ribP = partFactory.CreateRIB(123);
-        var attP = partFactory.CreateAttestation(123);
-        System.Console.WriteLine(ribP.GenerateRIB());
-        System.Console.WriteLine(attP.GenerateAttestation());
+        //IDocumentFactory partFactory = new ParticulierDocumentFactory();
+        //var ribP = partFactory.CreateRIB(123);
+        //var attP = partFactory.CreateAttestation(123);
+        //System.Console.WriteLine(ribP.GenerateRIB());
+        //System.Console.WriteLine(attP.GenerateAttestation());
 
-        IDocumentFactory proFactory = new ProfessionnelDocumentFactory("12345678900000");
-        var ribPro = proFactory.CreateRIB(456);
-        var attPro = proFactory.CreateAttestation(456);
-        System.Console.WriteLine(ribPro.GenerateRIB());
-        System.Console.WriteLine(attPro.GenerateAttestation());
+        //IDocumentFactory proFactory = new ProfessionnelDocumentFactory("12345678900000");
+        //var ribPro = proFactory.CreateRIB(456);
+        //var attPro = proFactory.CreateAttestation(456);
+        //System.Console.WriteLine(ribPro.GenerateRIB());
+        //System.Console.WriteLine(attPro.GenerateAttestation());
+
+        var habPrototype = new ContratHabitation(); 
+        var autoPrototype = new ContratAuto();
+        var viePrototype = new ContratVie();
+
+        Contrat contrat1 = habPrototype.Clone();
+        contrat1.NomClient = "Dupont";
+        contrat1.DateDebut = DateTime.Today;
+        contrat1.Montant = 120000m;
+        contrat1.Annexes.Add("Inventaire mobilier");
+        PrintContrat(contrat1);
+
+        Contrat contrat2 = autoPrototype.Clone();
+        contrat2.NomClient = "Martin";
+        contrat2.DateDebut = DateTime.Today.AddDays(7);
+        contrat2.Montant = 20000m;
+        contrat2.Annexes.Add("Annexe options : assistance 24/7");
+        PrintContrat(contrat2);
+
+        Contrat contrat3 = viePrototype.Clone();
+        contrat3.NomClient = "Durand";
+        contrat3.DateDebut = DateTime.Today;
+        contrat3.Montant = 50000m;
+        contrat3.Annexes.Add("Option rente majorée");
+        PrintContrat(contrat3);
+    }
+    static void PrintContrat(Contrat c)
+    {
+        Console.WriteLine("-------------------------------------------------");
+        Console.WriteLine($"Type : {c.GetType().Name}");
+        Console.WriteLine($"Client : {c.NomClient}");
+        Console.WriteLine($"Date début : {c.DateDebut:d}");
+        Console.WriteLine($"Montant : {c.Montant}");
+        Console.WriteLine("Clauses standard :");
+        foreach (var clause in c.ClausesStandard)
+            Console.WriteLine($" - {clause}");
+        Console.WriteLine("Annexes :");
+        foreach (var annexe in c.Annexes)
+            Console.WriteLine($" - {annexe}");
+        Console.WriteLine("-------------------------------------------------");
     }
 }
