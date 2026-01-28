@@ -75,14 +75,33 @@
         //IPaymentService adapter = new Adapter();
         //ProcessOrder(adapter, 149.99m);
 
-        var msg1 = new Message { Content = "Hello World" };
-        Console.WriteLine(msg1.Process());
+        //var msg1 = new Message { Content = "Hello World" };
+        //Console.WriteLine(msg1.Process());
 
-        var msg2 = new CompressedAndEncryptedMessage { Content = "Secret data" };
-        Console.WriteLine(msg2.Process());
+        //var msg2 = new CompressedAndEncryptedMessage { Content = "Secret data" };
+        //Console.WriteLine(msg2.Process());
 
-        var msg3 = new CompressedEncryptedAndSignedMessage { Content = "Very important" };
-        Console.WriteLine(msg3.Process());
+        //var msg3 = new CompressedEncryptedAndSignedMessage { Content = "Very important" };
+        //Console.WriteLine(msg3.Process());
+
+        var contexte = new LivraisonContext(new StandardPost());
+
+        // Scénario 1 : StandardPost
+        Console.WriteLine("StandardPost (2kg) : " + contexte.Calculer(2m, 50m, 30.0) + " €");
+
+        // Scénario 2 : ExpressDelivery
+        contexte.SetStrategie(new ExpressDelivery());
+        Console.WriteLine("Express (10kg, 250km) : " + contexte.Calculer(10m, 50m, 250.0) + " €");
+
+        // Scénario 3 : EcoShipping (valide)
+        contexte.SetStrategie(new EcoShipping());
+        Console.WriteLine("Eco (3kg) : " + contexte.Calculer(3m, 40m, 10.0) + " €");
+
+        // Scénario 4 : PremiumCourier (valide et non valide) inférieur et supérieur à 100€
+        contexte.SetStrategie(new PremiumCourier());
+        Console.WriteLine("Premium (valeur 120€) : " + contexte.Calculer(2m, 120m, 50.0) + " €");
+        Console.WriteLine("Premium (valeur 80€) : " + contexte.Calculer(2m, 80m, 50.0) + " €");
+
     }
 
     static void ProcessOrder(IPaymentService paymentService, decimal total)
