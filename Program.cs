@@ -39,30 +39,35 @@
         //System.Console.WriteLine(ribPro.GenerateRIB());
         //System.Console.WriteLine(attPro.GenerateAttestation());
 
-        var habPrototype = new ContratHabitation(); 
-        var autoPrototype = new ContratAuto();
-        var viePrototype = new ContratVie();
+        //var habPrototype = new ContratHabitation(); 
+        //var autoPrototype = new ContratAuto();
+        //var viePrototype = new ContratVie();
 
-        Contrat contrat1 = habPrototype.Clone();
-        contrat1.NomClient = "Dupont";
-        contrat1.DateDebut = DateTime.Today;
-        contrat1.Montant = 120000m;
-        contrat1.Annexes.Add("Inventaire mobilier");
-        PrintContrat(contrat1);
+        //Contrat contrat1 = habPrototype.Clone();
+        //contrat1.NomClient = "Dupont";
+        //contrat1.DateDebut = DateTime.Today;
+        //contrat1.Montant = 120000m;
+        //contrat1.Annexes.Add("Inventaire mobilier");
+        //PrintContrat(contrat1);
 
-        Contrat contrat2 = autoPrototype.Clone();
-        contrat2.NomClient = "Martin";
-        contrat2.DateDebut = DateTime.Today.AddDays(7);
-        contrat2.Montant = 20000m;
-        contrat2.Annexes.Add("Annexe options : assistance 24/7");
-        PrintContrat(contrat2);
+        //Contrat contrat2 = autoPrototype.Clone();
+        //contrat2.NomClient = "Martin";
+        //contrat2.DateDebut = DateTime.Today.AddDays(7);
+        //contrat2.Montant = 20000m;
+        //contrat2.Annexes.Add("Annexe options : assistance 24/7");
+        //PrintContrat(contrat2);
 
-        Contrat contrat3 = viePrototype.Clone();
-        contrat3.NomClient = "Durand";
-        contrat3.DateDebut = DateTime.Today;
-        contrat3.Montant = 50000m;
-        contrat3.Annexes.Add("Option rente majorée");
-        PrintContrat(contrat3);
+        //Contrat contrat3 = viePrototype.Clone();
+        //contrat3.NomClient = "Durand";
+        //contrat3.DateDebut = DateTime.Today;
+        //contrat3.Montant = 50000m;
+        //contrat3.Annexes.Add("Option rente majorée");
+        //rintContrat(contrat3);
+
+
+        new Notification(new NotificationEmail("Commande")).Envoyer("Votre commande a été passée avec succès.");
+        new Notification(new NotificationSMS("Livraison")).Envoyer("Votre colis est en route.");
+        new Notification(new NotificationPush("Support")).Envoyer("Votre ticket de support a été mis à jour.");
     }
     static void PrintContrat(Contrat c)
     {
