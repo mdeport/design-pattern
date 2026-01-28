@@ -65,10 +65,26 @@
         //rintContrat(contrat3);
 
 
-        new Notification(new NotificationEmail("Commande")).Envoyer("Votre commande a été passée avec succès.");
-        new Notification(new NotificationSMS("Livraison")).Envoyer("Votre colis est en route.");
-        new Notification(new NotificationPush("Support")).Envoyer("Votre ticket de support a été mis à jour.");
+        //new Notification(new NotificationEmail("Commande")).Envoyer("Votre commande a été passée avec succès.");
+        //new Notification(new NotificationSMS("Livraison")).Envoyer("Votre colis est en route.");
+        //new Notification(new NotificationPush("Support")).Envoyer("Votre ticket de support a été mis à jour.");
+
+        IPaymentService service = new InternalPaymentService();
+        ProcessOrder(service, 99.99m);
+
+        IPaymentService adapter = new Adapter();
+        ProcessOrder(adapter, 149.99m);
     }
+
+    static void ProcessOrder(IPaymentService paymentService, decimal total)
+    {
+        bool success = paymentService.ProcessPayment(total, "EUR");
+        if (success)
+        {
+            Console.WriteLine("Commande traitée avec succès");
+        }
+    }
+    
     static void PrintContrat(Contrat c)
     {
         Console.WriteLine("-------------------------------------------------");
